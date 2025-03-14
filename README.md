@@ -4,3 +4,4 @@
 pip install opencv-python
 pip install ultralytics
 pip install imageio[ffmpeg]
+pip install opencv-python
