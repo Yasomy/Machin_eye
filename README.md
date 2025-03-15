@@ -7,8 +7,10 @@
 - pip install imageio[ffmpeg]
 ```
 
-
-
+# как установить проект
+```
+git clone https://github.com/Yasomy/Machin_eye.git
+```
 # После того как скачали zip надо установить папку myenv 
 ```bash
 cd C:\Users\student\Mathineeye
