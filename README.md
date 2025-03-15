@@ -9,7 +9,13 @@
 
 
 
-# После того как скачали zip надо установить папку myenv - cd C:\Users\student\Mathineeye ( аля сам путь к директории указать) и после python -m venv myenv( сама установка этой папки)
+# После того как скачали zip надо установить папку myenv 
+```bash
+cd C:\Users\student\Mathineeye
+```
+```python
+ -m venv myenv
+```
 - после пробуем
   ```bash
   myenv\Scripts\activate
