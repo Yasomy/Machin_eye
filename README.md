@@ -1,10 +1,11 @@
 # Machin_eye
 
 # Бибилиотеки
+```python
 - pip install opencv-python
 - pip install ultralytics
 - pip install imageio[ffmpeg]
-
+```
 
 
 
@@ -12,11 +13,13 @@
 - после пробуем
   ```bash
   myenv\Scripts\activate
+  ```
 - если сработало - качаем библеотеки в проект, нет то пробуем
   ```powershell
   Set-ExecutionPolicy Unrestricted -Scope Process
   Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
   myenv\Scripts\activate
+  ```
 - после этого должно заработать
 
 
@@ -25,7 +28,8 @@
 - сначала устанавливаем драйвера Куда
 - после нужно с библеотеками повозиться
   ```python
-  python -c "import torch; print(torch.cuda.is_available())" 
+  python -c "import torch; print(torch.cuda.is_available())"
+  ```
 - смотрит работает ли у нас гпу false значит нет
 тогда сначала проверяем есть ли вообще драва у нас на куда
   ```python
@@ -35,6 +39,7 @@
   3000/4000 серия GPU
   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
   python -c "import torch; print(torch.cuda.is_available())"
+  ```
 после если есть то удаляем старые библеотеки торча
 после устанавливаем новые библеотеки под куду
 после проверяем опять
