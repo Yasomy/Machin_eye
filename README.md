@@ -32,10 +32,10 @@
   nvidia-smi
   pip uninstall torch torchvision torchaudio
   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-  3000/4000 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+  3000/4000 серия GPU
+  pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
   python -c "import torch; print(torch.cuda.is_available())"
 после если есть то удаляем старые библеотеки торча
 после устанавливаем новые библеотеки под куду
-а если 3000 или 4000 серии
 после проверяем опять
 если да, то все работает! победка!
