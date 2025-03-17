@@ -11,7 +11,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"🔹 Используем устройство: {device.upper()}")
 
 # Загружаем YOLO на GPU (если доступен)
-model = YOLO("yolo11m.pt").to(device)
+model = YOLO("yolo12x.pt").to(device)
 
 # Открываем поток
 cap = cv2.VideoCapture(stream_url)
