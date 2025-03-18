@@ -15,8 +15,8 @@ git clone https://github.com/Yasomy/Machin_eye.git
 ```bash
 cd C:\Users\student\Mathineeye
 ```
-```python
--m venv myenv
+```
+python -m venv myenv
 ```
 - после пробуем
 ```bash
