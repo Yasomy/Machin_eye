@@ -26,7 +26,7 @@ class ObjectDetectionStream:
         """
         Загружает модель YOLO и переводит ее на нужное устройство.
         """
-        model = YOLO("best_x3.pt").to(self.device)
+        model = YOLO("best_x4.pt").to(self.device)
         # При необходимости можно выполнить fuse() для ускорения:
         model.fuse()
         return model
@@ -85,9 +85,9 @@ class ObjectDetectionStream:
         """
         for obj in tracked_objects:
             x1, y1, x2, y2, track_id = obj
-            cv2.rectangle(frame, (int(x1), int(y1)), (int(x2), int(y2)), (0, 0, 255), 2)
+            cv2.rectangle(frame, (int(x1), int(y1)), (int(x2), int(y2)), (0, 0, 255), 1)
             cv2.putText(frame, f"ID: {int(track_id)}", (int(x1), int(y1)-10),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 0, 255), 2)
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.3, (0, 0, 255), 1)
         return frame
 
     def draw_transport_boxes(self, frame, detections):
@@ -100,9 +100,8 @@ class ObjectDetectionStream:
         for det in detections:
             x1, y1, x2, y2, conf, cls = det
             if int(cls) == 2:
-                cv2.rectangle(frame, (int(x1), int(y1)), (int(x2), int(y2)), (255, 0, 0), 2)
-                cv2.putText(frame, f"Transport: {conf:.2f}", (int(x1), int(y1)-10),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 0, 0), 2)
+                # Тонкая обводка: толщина 1, текст не отрисовываем
+                cv2.rectangle(frame, (int(x1), int(y1)), (int(x2), int(y2)), (255, 0, 0), 1)
         return frame
 
     def __call__(self):
@@ -125,7 +124,7 @@ class ObjectDetectionStream:
         num = 1  # номер для сохранения скриншотов
         prev_time = time.time()
         # Инициализируем SORT трекер для объектов класса person
-        tracker = sort.Sort(max_age=500, min_hits=15, iou_threshold=0.15)
+        tracker = sort.Sort(max_age=1000, min_hits=10, iou_threshold=0.15)
 
         while True:
             ret, frame = cap.read()
@@ -182,6 +181,6 @@ class ObjectDetectionStream:
 
 
 if __name__ == '__main__':
-    stream_url = ("http://46.191.199.34/001-999-4-348/tracks-v1/index.fmp4.m3u8?token=05a520d05dd94e1d857ac5747a8d91b9")
+    stream_url = ("http://46.191.199.12/1660720512DSH176/index.fmp4.m3u8?token=7acaece6c9fc4550a83d2ee1e4316e4e")
     detector = ObjectDetectionStream(stream_url)
     detector()
