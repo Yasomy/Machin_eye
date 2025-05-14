@@ -20,8 +20,10 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 myenv\Scripts\activate
 ```
 - после этого должно заработать
+# установки библеотек
+- важно чтобы библеотеки устанавливались в виртуальное окружение
 ```
-
+pip install -r requiremets.txt
 ```
 # Как сделать так чтобы гпу заработало???
 - сначала устанавливаем драйвера CUDA
