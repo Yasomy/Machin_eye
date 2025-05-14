@@ -26,12 +26,12 @@ myenv\Scripts\activate
 ```
 - после этого должно заработать
 # Как сделать так чтобы гпу заработало???
-- сначала устанавливаем драйвера Куда
+- сначала устанавливаем драйвера CUDA
 ```python
 python -c "import torch; print(torch.cuda.is_available())"
 ```
-- смотрим работает ли у нас гпу false значит нет
-тогда сначала проверяем есть ли вообще драва у нас на куда
+- смотрим работает ли у нас GPU false значит нет
+тогда сначала проверяем есть ли вообще драва у нас на CUDA
 ```python
 nvidia-smi
 pip uninstall torch torchvision torchaudio
