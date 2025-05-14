@@ -90,7 +90,7 @@ class ObjectDetectionStream:
         self.model = self.load_model()
 
     def load_model(self):
-        m = YOLO("best_x5.pt").to(self.device)
+        m = YOLO("last1.pt").to(self.device)
         m.fuse()
         return m
 
@@ -139,7 +139,7 @@ class ObjectDetectionStream:
             print("❌ Неверный размер видео")
             return
 
-        tracker = sort.Sort(max_age=10000, min_hits=5, iou_threshold=0.15)
+        tracker = sort.Sort(max_age=10000, min_hits=10, iou_threshold=0.15)
         window = "YOLO Stream with Tracking (GPU)"
         cv2.namedWindow(window)
         global rois
@@ -237,5 +237,5 @@ class ObjectDetectionStream:
         cv2.destroyAllWindows()
 
 if __name__ == '__main__':
-    stream_url = "http://46.191.199.12/1660720512DSH176/tracks-v1/index.fmp4.m3u8?token=4fd72a282a254700869cfa25870f9371"
+    stream_url = "http://46.191.199.13/1660720512DSH176/tracks-v1/index.fmp4.m3u8?token=e92aa3906ea24dbc83146faf766d5461"
     ObjectDetectionStream(stream_url)()
